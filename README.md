@@ -1,11 +1,35 @@
 # Final Project for TCSS543
 ## Description: This project, conducts an empirical study to see which of the network algorithms is better than the others. Our goal in this project is to see what kinds of graphs one algorithm performs better on than the others. 
+
 ## The following algorithms are implemented and experimented with: 
 1. Ford-Fulkerson (Ch 7.1) 
 2. Scaling Ford-Fulkerson (Ch 7.3)
 3. Preflow-push algorithm (Ch. 7.4)
 
+## Struction of code:
+### Foundational:
+- ResidualVertex.java
+- ResidualEdge.java
+- ResidualGraph.java
 
+### Three algorithms:
+- FordFulkerson.java
+- ScalingFordFulkerson.java
+- PreflowPush.java
+
+### Testcases:
+- ./Bipartite
+- ./FixedDegree
+- ./Mesh
+- ./Random
+
+### Output of testcases:
+- output.txt
+
+### Extract data file: 
+- getData.csh
+
+## Testcases:
 ### Test Scenario for FixedDegree graph  -- by Mengting
 #### 1. Vertex size test(./FixedDegree/testVertexNumber):
 vertex/degree/minCapacity/maxCapacity
