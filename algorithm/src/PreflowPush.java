@@ -11,7 +11,7 @@ public class PreflowPush {
 	public static ResidualGraph graph; // the remaining graph after sorting
 	public double maxFlow; // the max flow value
 	public List<Vertex> vertices = null; 
-
+	public SimpleGraph simpleGraph;
 	/**
 	 *
 	 * find the max-flow of the simple graph
@@ -21,7 +21,8 @@ public class PreflowPush {
 	 */
 	public PreflowPush(SimpleGraph simpleGraph) {
 		graph = new ResidualGraph();
-		this.maxFlow = maxFlow(simpleGraph); //pre flow push max flow  
+		this.simpleGraph = simpleGraph;
+		//this.maxFlow = maxFlow(simpleGraph); //pre flow push max flow  
 		}
 	
 	/**
@@ -29,7 +30,7 @@ public class PreflowPush {
 	 * @param simpleGraph
 	 * @return
 	 */
-	private static void addVertices(SimpleGraph simpleGraph) {
+	private void addVertices(SimpleGraph simpleGraph) {
 		
 		@SuppressWarnings("unchecked")
 		List<Vertex> vertices = simpleGraph.vertexList;
@@ -51,7 +52,7 @@ public class PreflowPush {
 	 * @param simpleGraph
 	 * @param vertexList
 	 */
-	private static void addEdges(SimpleGraph simpleGraph) {
+	private void addEdges(SimpleGraph simpleGraph) {
 		@SuppressWarnings("unchecked")
 		List<Edge> edges = simpleGraph.edgeList;
 		for (int i = 0; i < edges.size(); i++) {
@@ -84,7 +85,7 @@ public class PreflowPush {
 	 * @param simpleGraph
 	 * @return
 	 */
-	private static double maxFlow(SimpleGraph simpleGraph) {
+	public double maxFlow() {
 		ResidualVertex residualVertex;
 		addVertices(simpleGraph); //add nodes
 		addEdges(simpleGraph); // add edges 
@@ -118,7 +119,7 @@ public class PreflowPush {
 	 * 
 	 * @return an active node
 	 */
-	private static ResidualVertex getActiveNode() {
+	private ResidualVertex getActiveNode() {
 		Iterator<?> vertices = graph.vertices();
 		while(vertices.hasNext()) {
 			ResidualVertex vertex = (ResidualVertex) vertices.next(); 
@@ -134,7 +135,7 @@ public class PreflowPush {
 	 * @param residualVertex
 	 * @return
 	 */
-	private static ResidualEdge findMinHeight(ResidualVertex residualVertex) {
+	private ResidualEdge findMinHeight(ResidualVertex residualVertex) {
 		
 		List<ResidualEdge> edges = residualVertex.nextEdgeList;
 		ResidualVertex w2;
@@ -157,7 +158,7 @@ public class PreflowPush {
 	 * @param residualVertex
 	 * @param forwardEdge
 	 */
-	private static void push(ResidualVertex residualVertex, ResidualEdge forwardEdge) {
+	private void push(ResidualVertex residualVertex, ResidualEdge forwardEdge) {
 		
 		ResidualVertex w2 = forwardEdge.getSecondPoint();
 		double excessAvailable = residualVertex.getExcess(); //
@@ -205,7 +206,7 @@ public class PreflowPush {
 	 * Relabel height of new graph
 	 * @param residualVertex
 	 */
-	private static void relabel(ResidualVertex residualVertex) {
+	private void relabel(ResidualVertex residualVertex) {
 		
 		List<ResidualEdge> nextEdges = residualVertex.nextEdgeList;
 		double minHeight = residualVertex.getHeight();

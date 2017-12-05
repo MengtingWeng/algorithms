@@ -10,10 +10,13 @@ public class ScalingFordFulkerson {
 	public ResidualGraph graph;  //the residual graph
 	public double maxFlow;  //the max flow value
 	public ResidualVertex source;
+	public SimpleGraph sGraph;
 	
+	public ScalingFordFulkerson(SimpleGraph sGraph) {
+		this.sGraph = sGraph;
+	}
 	
-	//constructor of ScalingFordFulkerson class
-	public double ScalingFordFulkerson(SimpleGraph sGraph) {
+	public double getMaxFlow() {
 		this.graph = new ResidualGraph();
 		//initial max flow value is 0
 		this.maxFlow = 0;   

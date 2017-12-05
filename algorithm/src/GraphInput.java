@@ -100,16 +100,34 @@ public class GraphInput {
           SimpleGraph G;
           G = new SimpleGraph();
           //LoadSimpleGraph(G, args[0]);
-          LoadSimpleGraph(G, "./src/FixedDegree/testOutEdgeNumber/1000v-25o-25min-200max.txt");
-          //long startTime = System.currentTimeMillis();
-          long startTime = System.nanoTime();
-          ScalingFordFulkerson sff = new ScalingFordFulkerson();
-          //long endTime = System.currentTimeMillis();
-          long endTime = System.nanoTime();
-          long totalTime = (endTime - startTime) / 1000;
-          double maxFlow = sff.ScalingFordFulkerson(G);
-          System.out.println("The max flow value is: " +  maxFlow);
-          System.out.println("The running time is: " +  totalTime + " microsecond");
-          //System.out.println(G.vertexList + " " + G.edgeList);
+          LoadSimpleGraph(G, "./src/FixedDegree/testVertexNumber/10v-5o-25min-200max.txt");
+          
+          //FordFulkerson
+          long startTime1 = System.nanoTime();
+          FordFulkerson ff = new FordFulkerson(G);
+          double maxFlow1 = ff.getMaxFlow();
+          long endTime1 = System.nanoTime();
+          long totalTime1 = (endTime1 - startTime1) / 1000;
+          System.out.println("FordFulkerson: The max flow value is: " +  maxFlow1);
+          System.out.println("FordFulkerson: The running time is: " +  totalTime1 + " microsecond");
+          
+          //ScalingFordFulkerson
+          long startTime2 = System.nanoTime();
+          ScalingFordFulkerson sff = new ScalingFordFulkerson(G);
+          double maxFlow2 = sff.getMaxFlow();
+          long endTime2 = System.nanoTime();
+          long totalTime2 = (endTime2 - startTime2) / 1000;
+          System.out.println("ScalingFordFulkerson: The max flow value is: " +  maxFlow2);
+          System.out.println("ScalingFordFulkerson: The running time is: " +  totalTime2 + " microsecond");
+          
+          //PreflowPush
+          long startTime3 = System.nanoTime();
+          PreflowPush pp = new PreflowPush(G);
+          double maxFlow3 = pp.maxFlow;
+          long endTime3 = System.nanoTime();
+          long totalTime3 = (endTime3 - startTime3) / 1000;
+          System.out.println("PreflowPush: The max flow value is: " +  maxFlow3);
+          System.out.println("PreflowPush: The running time is: " +  totalTime3 + " microsecond");
+          
     }
 }

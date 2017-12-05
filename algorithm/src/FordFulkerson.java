@@ -7,11 +7,13 @@ public class FordFulkerson
 	public ResidualGraph graph;  //the residual graph
 	public double maxFlow;  //the max flow value
 	public ResidualVertex source;
+	public SimpleGraph sGraph;
 	
-	
-	//constructor of FordFulkerson class
-	public double FordFulkerson(SimpleGraph sGraph) {
-		long startTime = System.nanoTime();
+	public FordFulkerson(SimpleGraph sGraph) {
+		this.sGraph = sGraph;
+	}
+	public double getMaxFlow() {
+		//long startTime = System.nanoTime();
 		this.graph = new ResidualGraph();
 		//initial max flow value is 0
 		this.maxFlow = 0;   
@@ -38,9 +40,9 @@ public class FordFulkerson
 				updateResidualGraph(path, minValue);
 				maxFlow += minValue;
 			}
-			long endTime = System.nanoTime();
-			long duration = (endTime - startTime);
-			System.out.println(duration);
+			//long endTime = System.nanoTime();
+			//long duration = (endTime - startTime);
+			//System.out.println(duration);
 		
 		return maxFlow;
 	}
