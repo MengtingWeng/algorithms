@@ -8,7 +8,7 @@
 
 ## Execute method
 - Input the given file
-> java tcss543 "file"
+> java tcss543 file
 - Input the existing files
 > java tcss543
 
