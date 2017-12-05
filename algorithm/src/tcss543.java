@@ -21,7 +21,7 @@ public class tcss543 {
 	
 	//input the graph file to test three algorithm
 	public static void run(FordFulkerson ff, ScalingFordFulkerson sff, PreflowPush pp) {
-		System.out.println("Test three algorithms for 10 times given an input file");
+		System.out.println("Test three algorithms for 5 times given an input file");
 		System.out.println("-----------------------------------------------------------");
 		
 		//Ford Fulkerson Algorithm
@@ -31,7 +31,7 @@ public class tcss543 {
 		runAlgorithm("Scaling Ford Fulkerson Algorithm", ff, sff, pp);
 		
 		//Preflow Push Algorithm
-		//runAlgorithm("Preflow Push Algorithm", ff, sff, pp);
+		runAlgorithm("Preflow Push Algorithm", ff, sff, pp);
 	}
 	
 	public static void runAlgorithm(String algorithm,
@@ -50,7 +50,7 @@ public class tcss543 {
 			} else if (algorithm.equals("Scaling Ford Fulkerson Algorithm")) {
 				maxFlow = sff.getMaxFlow();
 			} else {
-				maxFlow = pp.maxFlow();
+				maxFlow = pp.getMaxFlow();
 			}
 			runtime[i] = System.currentTimeMillis() - start;
 		}
@@ -79,20 +79,20 @@ public class tcss543 {
 				File[] testcases = testScenarios[j].listFiles();
 				for (int k = 0; k < testcases.length; k++) {
 					System.out.println(testcases[k].getPath());
-//					SimpleGraph G = new SimpleGraph();
-//					GraphInput.LoadSimpleGraph(G, testcases[k].getPath());
-//					FordFulkerson ff = new FordFulkerson(G);
-//		    		ScalingFordFulkerson sff = new ScalingFordFulkerson(G);
-//		    		PreflowPush pp = new PreflowPush(G);
-//		    		System.out.println("----------------************test for" + testcases[k].getPath() + "************----------------");
-//		    		//Ford Fulkerson Algorithm
-//		    		runAlgorithm("Ford Fulkerson Algorithm", ff, sff, pp);
-//		    		
-//		    		//Scaling Ford Fulkerson Algorithm
-//		    		runAlgorithm("Scaling Ford Fulkerson Algorithm", ff, sff, pp);
-//		    		
-//		    		//Preflow Push Algorithm
-//		    		//runAlgorithm("Preflow Push Algorithm", ff, sff, pp);
+					SimpleGraph G = new SimpleGraph();
+					GraphInput.LoadSimpleGraph(G, testcases[k].getPath());
+					FordFulkerson ff = new FordFulkerson(G);
+		    		ScalingFordFulkerson sff = new ScalingFordFulkerson(G);
+		    		PreflowPush pp = new PreflowPush(G);
+		    		System.out.println("----------------************test for" + testcases[k].getPath() + "************----------------");
+		    		//Ford Fulkerson Algorithm
+		    		runAlgorithm("Ford Fulkerson Algorithm", ff, sff, pp);
+		    		
+		    		//Scaling Ford Fulkerson Algorithm
+		    		runAlgorithm("Scaling Ford Fulkerson Algorithm", ff, sff, pp);
+		    		
+		    		//Preflow Push Algorithm
+		    		runAlgorithm("Preflow Push Algorithm", ff, sff, pp);
 				}
 			}
 		}
