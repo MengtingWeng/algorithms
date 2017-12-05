@@ -6,6 +6,12 @@
 2. Scaling Ford-Fulkerson (Ch 7.3)
 3. Preflow-push algorithm (Ch. 7.4)
 
+## Execute method
+- Input the given file
+> java tcss543 "file"
+- Input the existing files
+> java tcss543
+
 ## Structure of code:
 ### Foundational:
 - ResidualVertex.java
