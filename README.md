@@ -6,7 +6,7 @@
 2. Scaling Ford-Fulkerson (Ch 7.3)
 3. Preflow-push algorithm (Ch. 7.4)
 
-## Struction of code:
+## Structure of code:
 ### Foundational:
 - ResidualVertex.java
 - ResidualEdge.java
