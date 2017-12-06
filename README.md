@@ -1,5 +1,6 @@
 # Final Project for TCSS543
-## Description: This project, conducts an empirical study to see which of the network algorithms is better than the others. Our goal in this project is to see what kinds of graphs one algorithm performs better on than the others. 
+## Description: 
+This project, conducts an empirical study to see which of the network algorithms is better than the others. Our goal in this project is to see what kinds of graphs one algorithm performs better on than the others. 
 
 ## The following algorithms are implemented and experimented with: 
 1. Ford-Fulkerson (Ch 7.1) 
